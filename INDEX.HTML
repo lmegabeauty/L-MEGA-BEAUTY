@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elegance Beauty Salon</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        .playfair {
+            font-family: 'Playfair Display', serif;
+        }
+          
+        .nav-link {
+            position: relative;
+        }
+        nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #000;
+            transition: width 0.3s ease;
+        }
+        .nav-link.active::after {
+            width: 100%;
+        }
+        .page {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        .page.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .promo-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .promo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Navigation -->
+     <nav class="bg-white shadow-sm fixed w-full z-10">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="playfair text-xl font-bold text-black">L'MEGA BEAUTY </span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#" class="nav-link text-black active" data-page="home">Beranda</a>
+                    <a href="#" class="nav-link text-black" data-page="promo">Promo</a>
+                    <a href="#" class="nav-link text-black" data-page="contact">Kontak Kami</a>
+                    <a href="https://wa.me/6281216208222?text=Saya%20ingin%20booking%20salon%20kecantikan%20anda" 
+                    target="_blank"
+                    class="bg-black text-white px-4 py-2 rounded-full hover:bg-gray-800 transition duration-300">
+                    Booking Online
+                    </a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-black">
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu"class="hidden md:hidden bg-white fixed w-full z-10 mt-16 shadow-lg">
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+            <a href="#" class="block px-3 py-2 text-black font-medium" data-page="home">Beranda</a>
+            <a href="#" class="block px-3 py-2 text-black font-medium" data-page="promo">Promo</a>
+            <a href="#" class="block px-3 py-2 text-black font-medium" data-page="contact">Kontak Kami</a>
+            <a href="https://wa.me/6281216208222?text=Saya%20ingin%20booking%20salon%20kecantikan%20anda" 
+            target="_blank"
+            class="bg-black text-white px-4 py-2 rounded-full hover:bg-gray-800 transition duration-300">
+            Booking Online
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="pt-20 pb-12">
+        <!-- Home Page -->
+        <div id="home" class="page active">
+            <!-- Hero Section -->
+            <section class="relative h-screen-80 flex items-center justify-center bg-gray-50 overflow-hidden">
+                <div class="absolute inset-0 bg-black opacity-40"></div>
+                <img src="https://images.unsplash.com/photo-1757217021560-03f23e39d628?w=500" alt="L'MEGA Beauty Salon" class="absolute inset-0 w-full h-full object-cover">
+                <div class="relative z-10 text-center px-4 max-w-4xl">
+                    <h1 class="playfair text-4xl md:text-6xl font-bold text-white mb-6" data-aos="fade-up">
+                        Temukan Kecantikan Sejatimu
+                    </h1>
+                    <p class="text-xl text-white mb-8" data-aos="fade-up" data-aos-delay="100">
+                       L'MEGA Beauty Salon menawarkan perawatan kecantikan premium dengan sentuhan profesional untuk membuat Anda merasa istimewa.
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div data-aos="fade-right">
+                        <h2 class="playfair text-3xl md:text-4xl font-bold text-black mb-6">
+                            Tentang L'MEGA Beauty Salon
+                        </h2>
+                        <p class="text-gray-600 mb-6">
+                            Sejak 2020 L'Mega beauty telah menjadi destinasi utama bagi mereka yang mencari perawatan kecantikan berkualitas tinggi. Dengan tim ahli yang berpengalaman, kami berkomitmen untuk memberikan pengalaman yang memanjakan dan hasil yang memuaskan.
+                        </p>
+                        <p class="text-gray-600 mb-8">
+                            Kami menggunakan produk-produk premium dan teknik terkini untuk memastikan Anda mendapatkan perawatan terbaik yang sesuai dengan kebutuhan kulit dan rambut Anda.
+                        </p>
+                        <div class="flex space-x-4">
+                            <div class="flex items-center">
+                                <i data-feather="check-circle" class="text-black mr-2"></i>
+                                <span class="text-sm">Bersertifikat</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i data-feather="check-circle" class="text-black mr-2"></i>
+                                <span class="text-sm">Hygienis</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i data-feather="check-circle" class="text-black mr-2"></i>
+                                <span class="text-sm">Ramah Lingkungan</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-aos="fade-left">
+                        <img src="https://images.unsplash.com/photo-1757213359455-889900f34e20?w=500" alt="Salon Interior" class="w-full h-auto rounded-lg shadow-lg">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Services Section -->
+               <section class="py-16 bg-gray-50">
+                <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-12">
+                        <h2 class="playfair text-3xl md:text-4xl font-bold text-black mb-4" data-aos="fade-up">
+                            Layanan Kami
+                        </h2>
+                        <p class="text-gray-600 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                            Berbagai perawatan kecantikan yang dirancang untuk meningkatkan kepercayaan diri dan kecantikan alami Anda.
+                        </p>
+                    </div>
+                   <div>
+                    <section id="services" class="py-8">
+  <h2 class="text-2xl font-bold mb-4">Our Service :</h2>
+  <ul class="list-disc pl-6 space-y-1">
+    <li>Potong Rambut - 20k</li>
+    <li>Potong Cuci Blow - 35k</li>
+    <li>Catok / Curly - 30k</li>
+    <li>Creambath mulai - 50k</li>
+    <li>Hair SPA mulai - 75k</li>
+    <li>Hair Mask mulai - 85k</li>
+    <li>Coloring mulai - 120k</li>
+    <li>Toning - 75k</li>
+    <li>Smoothing mulai - 200k</li>
+    <li>Facial Detox - 125k</li>
+    <li>Facial Anti Aging - 85k</li>
+    <li>Eyelash mulai</li>
+    <li>Terapi Telinga - 30k</li>
+    <li>Totok Wajah - 30k</li>
+    <li>Lulur - 150k</li>
+  </ul>
+
+  <div class="mt-6">
+    <p><strong>Tambahan Layanan:</strong></p>
+    <p>Makeup Wisuda, Makeup Akad, Makeup Pengantin, Makeup Karakter, Makeup Fantasi, dll.</p>
+  </div>
+
+  <div class="mt-6">
+    <h3 class="font-bold">RESERVES</h3>
+    <p>📞 <a href="https://wa.me/6281216208222?text=Saya%20ingin%20booking%20salon%20kecantikan%20anda" target="_blank" class="text-green-600 font-medium">
+      0812-1620-8222
+    </a></p>
+  </div>
+</section>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Promo Page -->
+        <div id="promo" class="page">
+            <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+                <div class="text-center mb-12">
+                    <h1 class="playfair text-3xl md:text-4xl font-bold text-black mb-4" data-aos="fade-up">
+                        Promo Spesial
+                    </h1>
+                    <p class="text-gray-600 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                        OOPS' MAAF BELUM ADA PROMO
+                    </p>
+                </div>
+                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                 
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        
+        <!-- Contact Page -->
+        <div id="contact" class="page">
+            <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+                <div class="text-center mb-12">
+                    <h1 class="playfair text-3xl md:text-4xl font-bold text-black mb-4" data-aos="fade-up">
+                        Hubungi Kami
+                    </h1>
+                    <p class="text-gray-600 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                        Kami siap melayani kebutuhan kecantikan Anda. Hubungi kami untuk informasi lebih lanjut.
+                    </p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div data-aos="fade-right">
+                        <div class="mb-8">
+                            <h3 class="playfair text-xl font-bold text-black mb-4">Informasi Kontak</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-start">
+                                    <i data-feather="map-pin" class="text-black mr-4 mt-1"></i>
+                                    <div>
+                                        <p class="font-medium text-black">Alamat</p>
+                                        <p class="text-gray-600">Jl.KH.Nawawi No.32 A,Mergelo,Jagalan,Kec.Magersari,Kota Mojokerto,Jawa Timur 61313</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <i data-feather="phone" class="text-black mr-4 mt-1"></i>
+                                    <div>
+                                        <p class="font-medium text-black">Telepon</p>
+                                        <p class="text-gray-600">+62-0812-1620-8222</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <i data-feather="clock" class="text-black mr-4 mt-1"></i>
+                                    <div>
+                                        <p class="font-medium text-black">Jam Operasional</p>
+                                        <p class="text-gray-600">Senin - Jumat: 08:00 - 21:00</p>
+                                        <p class="text-gray-600">Sabtu - Minggu: 08:00 - 21:00</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex space-x-4"> 
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-aos="fade-left">
+                   <h3 class="text-2xl font-bold text-amber-700 mb-4">Kirim Pesan</h3>
+  <div class="relative" style="padding-top: 150%;"> 
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScOBTmCgCwEUh5XE07VIS28bz2xEG46MH3EMkW7w57Z62Ymkw/viewform?embedded=true" 
+            class="absolute top-0 left-0 w-full h-full"
+            frameborder="0" marginheight="0" marginwidth="0">
+      Memuat…
+    </iframe>
+  </div>
+</div>
+                    </div>
+                </div>
+                <div class="mt-16" data-aos="fade-up">
+                    <h3 class="playfair text-xl font-bold text-black mb-6 text-center">Lokasi Kami</h3>
+                    <div class="bg-gray-200 h-96 rounded-lg overflow-hidden">
+                        <!-- Google Maps Embed -->
+                       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3955.9579828226015!2d112.43465427588559!3d-7.469892192541759!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e780ddae139c201%3A0x3f0da5e6dac3b16e!2sL&#39;%20MEGA%20Beauty%20Salon%20(Salon%20%26%20Wedding)!5e0!3m2!1sid!2sid!4v1757214841345!5m2!1sid!2sid" 
+                                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+   <footer class="bg-black text-white py-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="playfair text-xl font-bold mb-4">ELEGANCE</h3>
+                    <p class="text-gray-400">
+                        Salon kecantikan premium dengan layanan terbaik untuk membuat Anda merasa istimewa.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="playfair text-lg font-bold mb-4">Layanan</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Perawatan Rambut</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Perawatan Wajah</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Manicure & Pedicure</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Perawatan Tubuh</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="playfair text-lg font-bold mb-4">Tautan Cepat</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition" data-page="home">Beranda</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition" data-page="promo">Promo</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition" data-page="contact">Kontak Kami</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Tentang Kami</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="playfair text-lg font-bold mb-4">Newsletter</h4>
+                    <p class="text-gray-400 mb-4">
+                        Dapatkan informasi promo terbaru langsung ke email Anda.
+                    </p>
+                    <form class="flex">
+                        <input type="email" placeholder="Email Anda" class="px-4 py-2 rounded-l-md w-full focus:outline-none text-black">
+                        <button type="submit" class="bg-white text-black px-4 py-2 rounded-r-md hover:bg-gray-200 transition">
+                            <i data-feather="send"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm">
+                    © 2023 Elegance Beauty Salon. All rights reserved.
+                </p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i data-feather="instagram"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i data-feather="facebook"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i data-feather="twitter"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i data-feather="youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+
+        // Initialize Feather Icons
+        feather.replace();
+
+        // Page Navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const pages = document.querySelectorAll('.page');
+
+            // Set initial active page
+            showPage('home');
+
+            // Add click event for navigation links
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const page = this.getAttribute('data-page');
+                    
+                    // Update active nav link
+                    navLinks.forEach(navLink => {
+                        navLink.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                    
+                    // Show selected page
+                    showPage(page);
+                    
+                    // Close mobile menu if open
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // Mobile menu toggle
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Add click event for mobile menu links
+            const mobileLinks = document.querySelectorAll('#mobile-menu a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    if(this.getAttribute('data-page')) {
+                        e.preventDefault();
+                        const page = this.getAttribute('data-page');
+                        showPage(page);
+                        mobileMenu.classList.add('hidden');
+                    }
+                });
+            });
+
+            // Function to show selected page
+            function showPage(pageId) {
+                pages.forEach(page => {
+                    page.classList.remove('active');
+                });
+                document.getElementById(pageId).classList.add('active');
+                
+                // Scroll to top
+                window.scrollTo(0, 0);
+            }
+        });
+    </script>
+</body>
+</html>
